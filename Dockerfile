@@ -15,8 +15,7 @@ ENV DATABASE_URL="postgresql://postgres-lnh0-production.up.railway.app:5432/grou
 ENV GROUPAROO_DISTRIBUTION="@grouparoo/omnibus:$GROUPAROO_VERSION"
 
 COPY . .
-RUN --mount=type=cache,id=npmrc-cache
-RUN --mount=type=secret,id=npmrc,target=/grouparoo/.npmrc npm install
+RUN --mount=type=secret,id=npmrc-cache,target=/grouparoo/.npmrc npm install
 RUN npm prune
 
 ENTRYPOINT [ "./node_modules/.bin/grouparoo" ]
