@@ -5,13 +5,13 @@ ARG GROUPAROO_VERSION
 WORKDIR /grouparoo
 
 ENV NODE_ENV='production'
-ENV PORT=3000
-ENV WEB_URL=http://localhost:$PORT
+ENV PORT=443
+ENV WEB_URL=https://omnibus-production.up.railway.app
 ENV WEB_SERVER=true
 ENV SERVER_TOKEN="default-server-token"
 ENV WORKERS=1
-ENV REDIS_URL="redis://localhost:6379/0"
-ENV DATABASE_URL="postgresql://localhost:5432/grouparoo_development"
+ENV REDIS_URL="redis://redis-production-2f49.up.railway.app:6379/0"
+ENV DATABASE_URL="postgresql://postgres-lnh0-production.up.railway.app:5432/grouparoo_development"
 ENV GROUPAROO_DISTRIBUTION="@grouparoo/omnibus:$GROUPAROO_VERSION"
 
 COPY . .
