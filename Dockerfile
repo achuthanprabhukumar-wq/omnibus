@@ -16,6 +16,7 @@ ENV GROUPAROO_DISTRIBUTION="@grouparoo/omnibus:$GROUPAROO_VERSION"
 
 COPY . .
 RUN --mount=type=secret,id=npmrc,target=/grouparoo/.npmrc npm install
+RUN --mount=type=cache,id=npmrc-cache
 RUN npm prune
 
 ENTRYPOINT [ "./node_modules/.bin/grouparoo" ]
